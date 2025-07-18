@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt update && apt install -y nginx openssl
+RUN apt-get update && apt-get install -y nginx openssl && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/nginx/ssl && \
     openssl req -x509 -nodes -days 365 \
@@ -17,4 +17,5 @@ EXPOSE 443
 COPY conf/nginx.conf /etc/nginx/conf.d/nginx.conf
 
 CMD ["nginx", "-g", "daemon off;"]
+
 
