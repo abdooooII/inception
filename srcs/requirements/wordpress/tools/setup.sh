@@ -24,10 +24,10 @@ if [ ! -f wp-config.php ]; then
         --dbhost=mariadb:3306 \
         --allow-root
     
-    # Installer WordPress
+    # Installer WordPress avec le bon domaine
     wp core install \
-        --url=https://localhost \
-        --title="Inception WordPress" \
+        --url=https://abouafso.42.fr \
+        --title="Inception WordPress - abouafso" \
         --admin_user=${WP_ADMIN_USER} \
         --admin_password=${WP_ADMIN_PASS} \
         --admin_email=${WP_ADMIN_EMAIL} \

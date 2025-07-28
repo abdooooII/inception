@@ -1,5 +1,4 @@
 NAME = inception
-DATA_DIR = /tmp/inception_data
 
 all: build
 
@@ -53,4 +52,8 @@ shell-wordpress:
 shell-mariadb:
 	@docker exec -it mariadb /bin/bash
 
-.PHONY: all build up down stop restart logs clean fclean re status shell-nginx shell-wordpress shell-mariadb
+hosts:
+	@echo "🌐 Adding domain to /etc/hosts..."
+	@echo "127.0.0.1 abouafso.42.fr" | sudo tee -a /etc/hosts
+
+.PHONY: all build up down stop restart logs clean fclean re status shell-nginx shell-wordpress shell-mariadb hosts
